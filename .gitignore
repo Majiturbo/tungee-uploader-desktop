@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+
+# Local AI models (too large for Git; see README)
+.models/
+
+# Build / package outputs
+out/
+release/
+release-win/
+dist/
+dist-electron/
+
+# macOS native build artifacts
+mac/build/
+mac/.build/
+mac/.swiftpm/
+mac/shots/
+
+# Downloaded Windows ffmpeg binary (fetch via installer/scripts/fetch-win-ffmpeg.sh)
+resources/ffmpeg/win32-x64/*
+!resources/ffmpeg/win32-x64/.gitignore
+
+# Local / generated previews & dumps
+outputs/
+installer/preview/
+*.log
+*.tmp
+.cache/
+
+# OS / editor
+.DS_Store
+**/.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+credentials.json

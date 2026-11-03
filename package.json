@@ -1,0 +1,112 @@
+{
+  "name": "tungee-uploader-desktop",
+  "version": "3.0.0",
+  "private": true,
+  "author": {
+    "name": "马德槐"
+  },
+  "packageManager": "pnpm@11.16.0",
+  "description": "探迹话术批量上传桌面助手",
+  "type": "module",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import ./tests/register.mjs --test tests/*.test.ts",
+    "build": "electron-vite build",
+    "package:mac": "electron-vite build && electron-builder --mac dir --arm64",
+    "package:win": "installer/scripts/package-win.sh",
+    "package:win:lite": "installer/scripts/package-win-lite.sh"
+  },
+  "build": {
+    "appId": "com.tungee.uploader",
+    "productName": "探迹话术上传助手",
+    "copyright": "Copyright © 2026 马德槐",
+    "asar": false,
+    "npmRebuild": false,
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "out/**/*",
+      "package.json",
+      "node_modules/**/*",
+      "!node_modules/sherpa-onnx-win-*/**/*",
+      "!node_modules/sherpa-onnx-darwin-x64/**/*",
+      "!node_modules/@node-llama-cpp/win-*/**/*",
+      "!node_modules/@node-llama-cpp/linux-*/**/*",
+      "!node_modules/@node-llama-cpp/mac-x64/**/*",
+      "!node_modules/node-llama-cpp/llama/llama.cpp/**/*",
+      "!node_modules/node-llama-cpp/llama/xpack/**/*",
+      "!node_modules/node-llama-cpp/llama/localBuilds/**/*",
+      "!node_modules/node-llama-cpp/llama/gitRelease.bundle"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/探迹话术标准模板_v1.0.xlsx",
+        "to": "templates/探迹话术标准模板_v1.0.xlsx"
+      },
+      {
+        "from": ".models/asr",
+        "to": "models/asr"
+      },
+      {
+        "from": ".models/llm",
+        "to": "models/llm"
+      }
+    ],
+    "electronLanguages": [
+      "zh-CN"
+    ],
+    "mac": {
+      "category": "public.app-category.business",
+      "identity": null,
+      "icon": "resources/icon-v2.png",
+      "target": [
+        {
+          "target": "dir",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ]
+    },
+    "win": {
+      "icon": "resources/icon-v2.png",
+      "target": [
+        {
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "Tungee-Uploader-${version}-Windows-${arch}.${ext}"
+    }
+  },
+  "dependencies": {
+    "@fluentui/react-icons": "^2.0.343",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@fontsource-variable/noto-sans-sc": "^5.3.0",
+    "@fontsource-variable/noto-serif-sc": "^5.3.0",
+    "exceljs": "^4.4.0",
+    "jszip": "3.10.1",
+    "lucide-react": "^1.30.0",
+    "node-llama-cpp": "3.22.1",
+    "playwright": "^1.62.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "sherpa-onnx-node": "1.13.8"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@vitejs/plugin-react": "^5.2.0",
+    "electron": "^43.3.0",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^5.0.0",
+    "typescript": "^7.0.2",
+    "vite": "^7.3.6"
+  }
+}

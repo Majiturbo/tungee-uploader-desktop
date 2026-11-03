@@ -1,0 +1,11 @@
+{
+  "name": "tungee-uploader-setup",
+  "productName": "安装探迹话术上传助手",
+  "version": "2.2.1",
+  "private": true,
+  "description": "探迹话术上传助手安装程序",
+  "author": {
+    "name": "马德槐"
+  },
+  "main": "main.cjs"
+}

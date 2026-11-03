@@ -1,0 +1,59 @@
+{
+  "updates": [
+    {
+      "action": "update",
+      "matchName": "信息不足",
+      "category": "低意向（意愿较弱）",
+      "name": "信息不足",
+      "description": null,
+      "positiveExamples": null,
+      "negativeExamples": null
+    },
+    {
+      "action": "update",
+      "matchName": "询问价格",
+      "category": "中意向（有待评估）",
+      "name": "询问价格",
+      "description": "客户询问示例产品的价格、报价或费用区间。",
+      "positiveExamples": "你们这个怎么收费；一套大概多少钱",
+      "negativeExamples": "先介绍一下你们是做什么的"
+    },
+    {
+      "action": "update",
+      "matchName": "已有供应商",
+      "category": "中意向（有待评估）",
+      "name": "已有供应商",
+      "description": "客户表示已有合作方，但仍可对比或备选。",
+      "positiveExamples": "我们已经有供应商了；现在用的是别家",
+      "negativeExamples": "我们正在找新的合作方"
+    },
+    {
+      "action": "update",
+      "matchName": "接受资料",
+      "category": "中意向（有待评估）",
+      "name": "接受资料",
+      "description": "客户同意接收介绍资料或案例。",
+      "positiveExamples": "你发我一份资料看看；可以发到邮箱",
+      "negativeExamples": "先别发东西，我没时间看"
+    },
+    {
+      "action": "update",
+      "matchName": "有采购计划",
+      "category": "高意向（积极推进）",
+      "name": "有采购计划",
+      "description": "客户提到近期有采购或更换计划。",
+      "positiveExamples": "这季度就要定；我们正在招标",
+      "negativeExamples": "暂时没有采购计划"
+    },
+    {
+      "action": "update",
+      "matchName": "安排演示",
+      "category": "高意向（积极推进）",
+      "name": "安排演示",
+      "description": "客户同意看演示或约时间详聊。",
+      "positiveExamples": "下周可以演示一下；约个时间详细讲",
+      "negativeExamples": "先不用演示"
+    }
+  ],
+  "creates": []
+}

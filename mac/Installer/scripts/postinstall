@@ -1,0 +1,13 @@
+#!/bin/sh
+# Runs as root after the app lands in /Applications: register it so it shows among the apps right away,
+# then open it for whoever is logged in.
+APP="/Applications/探迹话术上传助手.app"
+LSREGISTER=/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister
+
+USER_NAME=$(/usr/bin/stat -f %Su /dev/console)
+[ -z "$USER_NAME" ] || [ "$USER_NAME" = "root" ] && exit 0
+USER_ID=$(/usr/bin/id -u "$USER_NAME")
+
+/bin/launchctl asuser "$USER_ID" /usr/bin/sudo -u "$USER_NAME" "$LSREGISTER" -f "$APP" || true
+/bin/launchctl asuser "$USER_ID" /usr/bin/sudo -u "$USER_NAME" /usr/bin/open "$APP" || true
+exit 0

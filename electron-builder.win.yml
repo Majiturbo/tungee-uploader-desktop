@@ -1,0 +1,68 @@
+appId: com.tungee.uploader
+productName: 探迹话术上传助手
+copyright: Copyright © 2026 马德槐
+asar: true
+npmRebuild: false
+compression: normal
+removePackageScripts: true
+directories:
+  output: release-win
+files:
+  - out/**/*
+  - package.json
+  - "!node_modules/@fontsource-variable/**/*"
+  - "!node_modules/@types/**/*"
+  - "!node_modules/fsevents/**/*"
+  - "!node_modules/lucide-react/**/*"
+  - "!node_modules/@fluentui/**/*"
+  - "!node_modules/@griffel/**/*"
+  - "!node_modules/react/**/*"
+  - "!node_modules/react-dom/**/*"
+  - "!node_modules/scheduler/**/*"
+  - "!node_modules/playwright/lib/**/*"
+  - "!node_modules/playwright/types/**/*"
+  - "!node_modules/playwright/test.*"
+  - "!node_modules/playwright/cli.js"
+  - "!node_modules/playwright/*.d.ts"
+  - "!node_modules/playwright/README.md"
+  - "!node_modules/playwright/ThirdPartyNotices.txt"
+  - "!node_modules/playwright-core/bin/**/*"
+  - "!node_modules/playwright-core/types/**/*"
+  - "!node_modules/playwright-core/README.md"
+  - "!node_modules/playwright-core/ThirdPartyNotices.txt"
+  - "!node_modules/sherpa-onnx-darwin-*/**/*"
+  - "!node_modules/node-llama-cpp/llama/llama.cpp/**/*"
+  - "!node_modules/node-llama-cpp/llama/xpack/**/*"
+  - "!node_modules/node-llama-cpp/llama/localBuilds/**/*"
+  - "!node_modules/node-llama-cpp/llama/gitRelease.bundle"
+  - "!node_modules/@node-llama-cpp/mac-*/**/*"
+  - "!node_modules/@node-llama-cpp/linux-*/**/*"
+  - "!node_modules/**/*.lib"
+asarUnpack:
+  - "out/main/llm-worker.js"
+  - "node_modules/sherpa-onnx-win-x64/**/*"
+  - "node_modules/@node-llama-cpp/**/*"
+  - "node_modules/node-llama-cpp/bins/**/*"
+extraResources:
+  - from: resources/探迹话术标准模板_v1.0.xlsx
+    to: templates/探迹话术标准模板_v1.0.xlsx
+  - from: .models/asr
+    to: models/asr
+  - from: .models/llm
+    to: models/llm
+  - from: resources/ffmpeg/win32-x64/ffmpeg.exe
+    to: ffmpeg/ffmpeg.exe
+electronLanguages:
+  - zh-CN
+win:
+  icon: resources/icon-win.ico
+  executableName: 探迹话术上传助手
+  requestedExecutionLevel: asInvoker
+  signAndEditExecutable: true
+  signExecutable: false
+  legalTrademarks: 探迹话术上传助手
+  target:
+    - target: zip
+      arch:
+        - x64
+  artifactName: Tungee-Uploader-${version}-Windows-${arch}.${ext}

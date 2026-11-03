@@ -1,0 +1,37 @@
+# Built with --projectDir installer, so the installer carries none of the app's node_modules.
+appId: com.tungee.uploader.setup
+productName: 安装探迹话术上传助手
+copyright: Copyright © 2026 马德槐
+electronVersion: 43.3.0
+asar: true
+npmRebuild: false
+compression: normal
+directories:
+  output: ../release-win/installer-build
+files:
+  - package.json
+  - main.cjs
+  - lib.cjs
+  - files.cjs
+  - edition.cjs
+  - preload.cjs
+  - app/**/*
+  - "!**/node_modules/**/*"
+electronLanguages:
+  - zh-CN
+win:
+  icon: ../resources/icon-win.ico
+  executableName: TungeeUploaderSetup
+  requestedExecutionLevel: asInvoker
+  signAndEditExecutable: true
+  signExecutable: false
+  legalTrademarks: 探迹话术上传助手
+  target:
+    - target: portable
+      arch:
+        - x64
+  artifactName: TungeeUploaderBoot.${ext}
+portable:
+  requestExecutionLevel: user
+  splashImage: build/splash.bmp
+  unpackDirName: false
